@@ -50,10 +50,11 @@ Route::middleware(['auth:api'])->group(function () {
     Route::delete('articles/{article}', [ArticleController::class,'delete']);
 });
 
+Route::get('products', [ProductController::class,'get_all']);
+Route::get('products/{product}', [ProductController::class,'get_by_product_no']);
+Route::put('products/{product}', [ProductController::class,'update']);
+Route::delete('products/{product}', [ProductController::class,'delete']);
+
 Route::middleware(['auth:api'])->group(function () {
-    Route::get('products', [ProductController::class,'get_all']);
-    Route::get('products/{product}', [ProductController::class,'get_by_product_no']);
     Route::post('products', [ProductController::class,'create']);
-    Route::put('products/{product}', [ProductController::class,'update']);
-    Route::delete('products/{product}', [ProductController::class,'delete']);
 });
